@@ -1,0 +1,9 @@
+#useDynLib(pchc, .registration = TRUE)
+
+importFrom("Compositional", makefolds)
+importFrom("glmnet", glmnet)
+importFrom("Rfast", cauchy.mle, eachcol.apply, colmeans, colVars, colsums)
+importFrom("stats", model.matrix, coef)
+
+exportPattern("^[[:alpha:]]+")
+exportPattern("^[^\\.]")

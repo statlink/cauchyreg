@@ -1,0 +1,13 @@
+Package: cauchyreg
+Type: Package
+Title: Cauchy Regression 
+Version: 1.0
+Date: 2026-09-03
+Authors@R: person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr")
+Author: Michail Tsagris [aut, cre]
+Maintainer: Michail Tsagris <mtsagris@uoc.gr>
+Depends: R (>= 4.0)
+Imports: Compositional, glmnet, Rfast, stats
+Description: Cauchy regression modelling and LASSO to perform variable selection are included in this package. Cross-validation is performed to choose the optimal value of the lambda parameter. LASSO is based on the IRLS algorithm. A relevant paper is <doi:10.1109/ICIST.2014.6920341>. 
+License: GPL (>= 2)
+
