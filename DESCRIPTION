@@ -8,6 +8,6 @@ Author: Michail Tsagris [aut, cre]
 Maintainer: Michail Tsagris <mtsagris@uoc.gr>
 Depends: R (>= 4.0)
 Imports: Compositional, glmnet, Rfast, stats
-Description: Cauchy regression modelling and LASSO (Least Absolute Shrinkage and Selection Operator) to perform variable selection are included in this package. Cross-validation is performed to choose the optimal value of the lambda parameter. LASSO is based on the IRLS (Iteratively Reweighted Least Squares) algorithm. A relevant paper is by Liu T. and Tao D. (2014), <doi:10.1109/ICIST.2014.6920341>. 
+Description: Cauchy regression modelling and LASSO (Least Absolute Shrinkage and Selection Operator) to perform variable selection are included in this package. Cross-validation is performed to choose the optimal value of the lambda parameter. LASSO is based on the IRLS (Iteratively Reweighted Least Squares) algorithm. A relevant paper is by Liu and Tao (2014), <doi:10.1109/ICIST.2014.6920341>. 
 License: GPL (>= 2)
 
