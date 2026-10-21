@@ -15,8 +15,8 @@ value of the lambda parameter. LASSO is based on the IRLS (Iteratively Reweighte
 \tabular{ll}{
 Package: \tab cauchyreg\cr
 Type: \tab Package\cr
-Version: \tab 1.1 \cr
-Date: \tab 2026-09-12 \cr
+Version: \tab 1.2 \cr
+Date: \tab 2026-10-21 \cr
 }
 }
 

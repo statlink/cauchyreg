@@ -10,9 +10,6 @@ cauchy.reg.lasso <- function(y, x, lambda = NULL, nlambda = 100, tol = 1e-07, ma
 
   be <- c( mod$par[1], numeric(p) )
   g <- mod$param[2]
-  m <- Rfast::colmeans(x)
-  s <- Rfast::colVars(x, std = TRUE)
-  x <- t( ( t(x) - m ) / s )
   x_full <- cbind(1, x)
   res <- y - drop(x_full %*% be)
   res2 <- res^2
@@ -49,7 +46,6 @@ cauchy.reg.lasso <- function(y, x, lambda = NULL, nlambda = 100, tol = 1e-07, ma
     xnew <- as.matrix(xnew)
     if ( dim(xnew)[2] == 1 )  xnew <- t(xnew)
     est <- matrix( nrow = dim(xnew)[1], ncol = dim(B)[2] )
-    xnew <- t( ( t(xnew) - m ) / s )
     xnew <- cbind(1, xnew)
     for ( i in 1:dim(B)[2] )  est[, i] <- drop(xnew %*% B[, i])
   }
@@ -64,8 +60,7 @@ cauchy.reg.lasso <- function(y, x, lambda = NULL, nlambda = 100, tol = 1e-07, ma
   while ( iters < maxit && !converged ) {
     iters <- iters + 1
     be_old <- be
-    fit <- glmnet::glmnet(x, y, weights = down, lambda = lambda,
-                   intercept = TRUE, standardize = FALSE)
+    fit <- glmnet::glmnet(x, y, weights = down, lambda = lambda, intercept = TRUE, standardize = TRUE)
     be <- as.vector( coef(fit) )
     res <- y - drop(x_full %*% be)
     res2 <- res^2

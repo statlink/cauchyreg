@@ -3,9 +3,10 @@ cv.cauchyreglasso <- function(y, x, lambda = NULL, nlambda = 100, tol = 1e-07, m
 
   n <- dim(x)[1]
   if ( is.null(folds) )  folds <- Compositional::makefolds(1:n, nfolds = nfolds, seed = seed,
-                                                 stratified = FALSE)
+                                                           stratified = FALSE)
   nfolds <- length(folds)
-  lambda <- cauchyreg::cauchy.reg.lasso(y = y, x = x, lambda = lambda, nlambda = nlambda, tol = tol, maxit = maxit)$lambda
+  lambda <- cauchyreg::cauchy.reg.lasso(y = y, x = x, lambda = lambda, nlambda = nlambda,
+                                        tol = tol, maxit = maxit)$lambda
   mse <- matrix(nrow = nfolds, ncol = length(lambda) )
 
   for ( k in 1:nfolds ) {
@@ -13,7 +14,8 @@ cv.cauchyreglasso <- function(y, x, lambda = NULL, nlambda = 100, tol = 1e-07, m
     xtrain <- x[ -folds[[ k ]], ]
     ytest <- y[ folds[[ k ]] ]
     ytrain <- y[ -folds[[ k ]] ]
-    est <- cauchyreg::cauchy.reg.lasso(y = ytrain, x = xtrain, lambda = lambda, tol = tol, maxit = maxit, xnew = xtest)$est
+    est <- cauchyreg::cauchy.reg.lasso(y = ytrain, x = xtrain, lambda = lambda, tol = tol,
+                                       maxit = maxit, xnew = xtest)$est
     mse[k, ] <- Rfast::colmeans( (est - ytest)^2 )
   }
   mse <- cbind( lambda, Rfast::colmeans(mse) )

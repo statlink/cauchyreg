@@ -1,8 +1,8 @@
 Package: cauchyreg
 Type: Package
 Title: Cauchy Regression 
-Version: 1.1
-Date: 2026-09-12
+Version: 1.2
+Date: 2026-10-21
 Authors@R: person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr")
 Author: Michail Tsagris [aut, cre]
 Maintainer: Michail Tsagris <mtsagris@uoc.gr>
